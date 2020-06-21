@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+#include <sstream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int a,b;
+    cin>>a;
+    for(int i=1;i<=a;i++){
+        int c=0,k;
+        cin>>b;
+        ostringstream ss;
+        ss<<b;
+        string g=ss.str();
+        vector <int> v;
+        for(int j=g.size()-1;j>=0;j--){
+            if(g[j]=='0'){
+                c++;
+            }
+            else{
+                k=pow(10,c)+0.5;
+                string p(1, g[j]);
+                stringstream ee(p);
+                int x=0;
+                ee>>x;
+                k=k*x;
+                v.push_back(k);
+                c++;
+            }
+        }
+        cout<<v.size()<<endl;
+        for(int j=0;j<v.size();j++){
+            if(j==v.size()-1){
+                cout<<v[j]<<endl;
+            }
+            else{
+                cout<<v[j]<<" ";
+            }
+        }
+
+    }
+
+}
